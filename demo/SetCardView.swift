@@ -15,6 +15,8 @@ class SetCardView: UIView {
 
     @IBInspectable
     var shape: String = "oval" { didSet { setNeedsDisplay() } }
+    @IBInspectable
+    var color: UIColor = .green //You can use UIColor with @IBInspectable too (String, Int, Bool and UIColor)
     
     enum Shape: String {
         case diamond
@@ -23,6 +25,7 @@ class SetCardView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        //Use this to save and restore your
         let context = UIGraphicsGetCurrentContext()
         context?.saveGState()
         transform = CGAffineTransform.identity.translatedBy(x: 10, y: 10)
@@ -39,14 +42,15 @@ class SetCardView: UIView {
 
     private struct DrawingConstants {
         static let padding: CGFloat = 0.05
-        stat
+        static let topPadding: CGFloat = 0.05
     }
     
     private func drawDiamond() {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: bounds.minX+bounds.width*DrawingConstants.padding, y: bounds.midY))
         path.addLine(to: CGPoint(x: bounds.midX, y: bounds.minY+20))
-        path.addQuadCurve(to: <#T##CGPoint#>, controlPoint: <#T##CGPoint#>)
+        //Use this for drawing squiggles.
+        //path.addQuadCurve(to: <#T##CGPoint#>, controlPoint: <#T##CGPoint#>)
         UIColor.red.setStroke()
         path.stroke()
     }
