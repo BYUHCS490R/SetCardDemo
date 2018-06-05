@@ -9,14 +9,19 @@
 import UIKit
 
 class SetGameViewController: UIViewController {
-
- 
+    
+    @IBOutlet weak var gameView: SetGameView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //doesn't go here
         let cardView = SetCardView(frame: CGRect.zero)
+        //add gestures
+        //gameView.addCard(cardView)
+        
     }
+    
+    //upadteUI()
     
 }
