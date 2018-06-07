@@ -18,10 +18,14 @@ class SetGameViewController: UIViewController {
         //doesn't go here
         let cardView = SetCardView(frame: CGRect.zero)
         //add gestures
-        //gameView.addCard(cardView)
-        
+        gameView.addSubview(cardView)
+        gameView.subviews.count != 0 //gamee.cardInPlay.count
+        if let cardView = gameView.subviews[0] as? SetCardView
     }
     
     //upadteUI()
+    //,make sure the number of cards in the game == number of subviews
+    //for each card in cardsInPlay
+    //    set properties of the subviews of gameView.
     
 }
